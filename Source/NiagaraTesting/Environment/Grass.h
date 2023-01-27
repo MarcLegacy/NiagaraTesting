@@ -4,18 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Grass2.generated.h"
+#include "Grass.generated.h"
 
 class USphereComponent;
 class UNiagaraSystem;
 
 UCLASS()
-class NIAGARATESTING_API AGrass2 : public AActor
+class NIAGARATESTING_API AGrass : public AActor
 {
 	GENERATED_BODY()
 
 public:
-	AGrass2();
+	AGrass();
 
 	FORCEINLINE USceneComponent* GetRoot() const { return Root; }
 	FORCEINLINE UStaticMeshComponent* GetStaticMeshComponent() const { return StaticMeshComponent; }

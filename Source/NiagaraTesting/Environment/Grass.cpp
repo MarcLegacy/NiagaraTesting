@@ -1,6 +1,6 @@
 // Personal Project made by Marc Meijering, if code is taken from others it will be specified in the same file.
 
-#include "Grass2.h"
+#include "Grass.h"
 #include "NiagaraFunctionLibrary.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/Character.h"
@@ -8,7 +8,7 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "NiagaraTesting/Utility/Logger.h"
 
-AGrass2::AGrass2()
+AGrass::AGrass()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -22,10 +22,10 @@ AGrass2::AGrass2()
 	SphereCollider = CreateDefaultSubobject<USphereComponent>(TEXT("SphereCollider"));
 	SphereCollider->SetupAttachment(Root);
 
-	SphereCollider->OnComponentBeginOverlap.AddUniqueDynamic(this, &AGrass2::OnComponentBeginOverlap);
+	SphereCollider->OnComponentBeginOverlap.AddUniqueDynamic(this, &AGrass::OnComponentBeginOverlap);
 }
 
-void AGrass2::SpawnNiagaraSystem()
+void AGrass::SpawnNiagaraSystem()
 {
 	if (!CanSpawnNiagaraSystem) return;
 
@@ -38,7 +38,7 @@ void AGrass2::SpawnNiagaraSystem()
 	CanSpawnNiagaraSystem = false;
 }
 
-void AGrass2::OnComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+void AGrass::OnComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (OtherActor == UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
@@ -47,10 +47,10 @@ void AGrass2::OnComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, 
 	}
 }
 
-void AGrass2::BeginPlay()
+void AGrass::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FLogger::CheckAndLogIsPropertySet(this, NiagaraSystem, GET_MEMBER_NAME_CHECKED(AGrass2, NiagaraSystem));
+	FLogger::CheckAndLogIsPropertySet(this, NiagaraSystem, GET_MEMBER_NAME_CHECKED(AGrass, NiagaraSystem));
 }
 

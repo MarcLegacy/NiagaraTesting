@@ -6,7 +6,6 @@
 #include "GameFramework/Character.h"
 #include "NiagaraTestingCharacter.generated.h"
 
-class AGrass;
 UCLASS(config=Game)
 class ANiagaraTestingCharacter : public ACharacter
 {
@@ -29,7 +28,5 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 		UCameraComponent* FollowCamera;
-
-	TArray<AGrass*> GrassActors;
 };
 
