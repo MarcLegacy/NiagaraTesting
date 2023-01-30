@@ -34,7 +34,7 @@ void AGrass::SpawnNiagaraSystem()
 	const double Yaw = UKismetMathLibrary::FindLookAtRotation(PlayerCharacter->GetActorLocation(), GetActorLocation()).Yaw;
 	const FRotator Rotation = FRotator(0, Yaw, 0);
 
-	UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), NiagaraSystem, GetActorLocation(), Rotation);
+	UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), NiagaraSystem, GetActorLocation(), Rotation);
 
 	CanSpawnNiagaraSystem = false;
 }
