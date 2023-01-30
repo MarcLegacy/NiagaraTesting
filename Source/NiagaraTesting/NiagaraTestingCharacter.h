@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "NiagaraTestingCharacter.generated.h"
 
+class AStag;
 class UNiagaraComponent;
 class UNiagaraSystem;
 class ABoulder;

@@ -15,7 +15,10 @@ public class NiagaraTesting : ModuleRules
       "Engine", 
       "InputCore", 
       "HeadMountedDisplay",
-      "Niagara"
+      "Niagara",
+      "AIModule",
+      "GameplayTasks",
+      "NavigationSystem"
   });
 	}
 }

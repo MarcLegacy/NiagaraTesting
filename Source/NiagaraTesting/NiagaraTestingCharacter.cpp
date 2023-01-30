@@ -4,7 +4,9 @@
 
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
+#include "BehaviorTree/BehaviorTree.h"
 #include "Camera/CameraComponent.h"
+#include "Characters/AI/Stag.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
 #include "Environment/Boulder.h"
@@ -119,12 +121,13 @@ void ANiagaraTestingCharacter::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
 
-	if (GetVelocity().SizeSquared() > 0.0f && FLogger::CheckAndLogIsValidPtr(NiagaraComponent, __FUNCTION__))
+	if (GetVelocity().SizeSquared() > 0.0f)	// Is Player moving?
 	{
-		NiagaraComponent->SetNiagaraVariablePosition("PlayerPosition", GetActorLocation());
+		if (FLogger::CheckAndLogIsValidPtr(NiagaraComponent, __FUNCTION__))
+		{
+			NiagaraComponent->SetNiagaraVariablePosition("PlayerPosition", GetActorLocation());
+		}
 	}
-
-
 }
 
 void ANiagaraTestingCharacter::MoveForward(float Value)

@@ -16,6 +16,7 @@ public:
 	AStag();
 
 	FORCEINLINE UBehaviorTree* GetBehaviorTree() const { return BehaviorTree; }
+	FORCEINLINE float GetFleeDistance() const { return FleeDistance; }
 
 private:
 	void BeginPlay() override;
@@ -23,4 +24,6 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 		UBehaviorTree* BehaviorTree = nullptr;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float FleeDistance = 500;
 };

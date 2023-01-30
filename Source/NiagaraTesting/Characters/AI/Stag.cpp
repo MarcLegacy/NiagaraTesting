@@ -11,7 +11,6 @@ AStag::AStag()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-// Called when the game starts or when spawned
 void AStag::BeginPlay()
 {
 	Super::BeginPlay();

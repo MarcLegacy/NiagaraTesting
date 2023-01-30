@@ -6,9 +6,6 @@
 #include "AIController.h"
 #include "StagController.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class NIAGARATESTING_API AStagController : public AAIController
 {
@@ -21,6 +18,7 @@ public:
 
 private:
     void BeginPlay() override;
+    void Tick(float DeltaSeconds) override;
     void OnPossess(APawn* InPawn) override;
 
     UPROPERTY()
