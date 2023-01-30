@@ -1,6 +1,7 @@
 // Personal Project made by Marc Meijering, if code is taken from others it will be specified in the same file.
 
 #include "Grass.h"
+#include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/Character.h"
@@ -33,7 +34,7 @@ void AGrass::SpawnNiagaraSystem()
 	const double Yaw = UKismetMathLibrary::FindLookAtRotation(PlayerCharacter->GetActorLocation(), GetActorLocation()).Yaw;
 	const FRotator Rotation = FRotator(0, Yaw, 0);
 
-	UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), NiagaraSystem, GetActorLocation(), Rotation);
+	UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), NiagaraSystem, GetActorLocation(), Rotation);
 
 	CanSpawnNiagaraSystem = false;
 }
